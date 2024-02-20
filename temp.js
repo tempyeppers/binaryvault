@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
 const hell = 'G-X08GGSL290';
 
 function temp(cat, act, lab, val) {
-    if (typeof local !== 'undefined') {
-        local('event', act, {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', act, {
             'event_category': cat,
             'event_label': lab,
             'event_value': val
@@ -125,7 +125,7 @@ async function exclude() {
         const user = data.ip;
         temp('hello', 'world', 'temphelloworld', user);
     } catch (error) {
-        console.error('error:', error);
+        console.error('Error:', error);
     }
 }
 
