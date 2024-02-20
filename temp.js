@@ -11,10 +11,6 @@ window.addEventListener("scroll", () => {
     cityright.style.left = scrollvalue * 1.2 + "px";
 });
 
-document.addEventListener("click", function () {
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-});
-
 async function getUserIP() {
     try {
         const response = await fetch('https://api.ipify.org/?format=json');
@@ -34,9 +30,9 @@ async function displayUserIP() {
 
 setInterval(displayUserIP, 4500);
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     startHackingAnimation();
-    setTimeout(function () {
+    setTimeout(function() {
         document.querySelector('.loading-screen').style.display = 'none';
     }, 3000);
 });
@@ -67,3 +63,74 @@ function startHackingAnimation() {
         clearInterval(hackingInterval);
     }, 2000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalCommand = document.getElementById('terminal-command');
+
+    terminalCommand.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const command = terminalCommand.value.trim();
+            terminalCommand.value = '';
+            processCommand(command);
+        }
+    });
+
+    // added terminal
+    function processCommand(command) {
+        
+        if (command === 'access') {
+            document.getElementById('terminal').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            
+            bootSequence();
+        } else {
+            const output = executeCommand(command);
+            displayOutput(output);
+        }
+    }
+
+    function executeCommand(command) {
+        if (command === 'help') {
+            return 'available commands: <br> - access: access the main content';
+        } else {
+            return 'Command not found. Type "help" to see available commands.';
+        }
+    }
+
+    function displayOutput(output) {
+        const newOutput = document.createElement('div');
+        newOutput.innerHTML = output;
+        terminalOutput.appendChild(newOutput);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+});
+
+const hell = 'G-X08GGSL290';
+
+function temp(cat, act, lab, val) {
+    if (typeof local !== 'undefined') {
+        local('event', act, {
+            'event_category': cat,
+            'event_label': lab,
+            'event_value': val
+        });
+    }
+}
+
+async function exclude() {
+    try {
+        const response = await fetch('https://api.ipify.org/?format=json');
+        const data = await response.json();
+        const user = data.ip;
+        temp('hello', 'world', 'temphelloworld', user);
+    } catch (error) {
+        console.error('error:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', exclude);
+
+document.addEventListener("click", function () {
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+});
