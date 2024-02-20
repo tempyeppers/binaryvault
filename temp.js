@@ -106,31 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-const hell = 'G-X08GGSL290';
-
-function temp(cat, act, lab, val) {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', act, {
-            'event_category': cat,
-            'event_label': lab,
-            'event_value': val
-        });
-    }
-}
-
-async function exclude() {
-    try {
-        const response = await fetch('https://api.ipify.org/?format=json');
-        const data = await response.json();
-        const user = data.ip;
-        temp('hello', 'world', 'temphelloworld', user);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', exclude);
-
 document.addEventListener("click", function () {
     window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 });
