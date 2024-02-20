@@ -82,8 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (command === 'access') {
             document.getElementById('terminal').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
-            
-            bootSequence();
         } else {
             const output = executeCommand(command);
             displayOutput(output);
@@ -105,8 +103,3 @@ document.addEventListener('DOMContentLoaded', function() {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
     }
 });
-
-document.addEventListener("click", function () {
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-});
-
